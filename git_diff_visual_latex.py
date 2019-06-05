@@ -52,9 +52,9 @@ if __name__ == "__main__":
 
   diff_dir = "pdf_diff"
   for i in [0,1]:
-    spec = args.references[i]
+    spec = [args.ref_from, args.ref_to][i]
     print(f"make {spec}")
-    make_pdf_dispatch(args.references[i], os.path.join(diff_dir, f"main__{i}.pdf"))
+    make_pdf_dispatch(spec, os.path.join(diff_dir, f"main__{i}.pdf"))
   print(f"done making pdfs at {diff_dir}")
 
   diffpdf_sh = os.path.normpath(os.path.join(os.path.realpath(__file__), "../diffpdf.sh"))
